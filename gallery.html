@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Club Dandana Gallery- View immersive moments of elegant, emotional, artistic, and empowering musical performances.">
+    <title>Gallery | Club Dandana</title>
+    <!-- Google Fonts for Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-content">Dandana.</div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="custom-cursor"></div>
+
+    <!-- Header & Navigation -->
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Dandana.</a>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-links" id="nav-links">
+                <a href="index.html#home">Home</a>
+                <a href="index.html#about">About</a>
+                <a href="gallery.html" class="active">Gallery</a>
+                <a href="index.html#music">Music</a>
+                <a href="index.html#events">Events</a>
+                <a href="index.html#contact" class="btn-nav">Book Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-top-padding">
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery section-padding bg-light">
+            <div class="container text-center">
+                <span class="section-badge">Visuals</span>
+                <h2 class="section-title">The Complete Gallery</h2>
+                
+                <div class="gallery-filters mb-4">
+                    <button class="btn btn-outline filter-btn active" data-filter="all">All Events</button>
+                    <button class="btn btn-outline filter-btn" data-filter="echoes">Echoes of Agadir</button>
+                    <button class="btn btn-outline filter-btn" data-filter="symphony">Women's Day</button>
+                </div>
+                
+                <div class="gallery-event-section mb-5" id="gallery-echoes" data-category="echoes">
+                    <h3 class="event-gallery-title">Echoes of Agadir</h3>
+                    <div class="masonry-grid">
+                        <div class="gallery-item masonry-item fade-in">
+                            <img src="assets/gallery-1.png" alt="Echoes 1">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                                <span class="gallery-caption">Mesmerizing Tarab Solo</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item masonry-item fade-in" style="transition-delay: 0.1s;">
+                            <img src="assets/gallery-2.png" alt="Echoes 2">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                                <span class="gallery-caption">The Acoustic Ensemble</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item masonry-item fade-in" style="transition-delay: 0.2s;">
+                            <img src="assets/about-img.png" alt="Echoes 3">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                                <span class="gallery-caption">Rhythms of Heritage</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-event-section" id="gallery-symphony" data-category="symphony">
+                    <h3 class="event-gallery-title">Women's Day Symphony</h3>
+                    <div class="masonry-grid">
+                        <div class="gallery-item masonry-item fade-in">
+                            <img src="assets/about-img.png" alt="Symphony 1">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                                <span class="gallery-caption">Collective Sisterhood</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item masonry-item fade-in" style="transition-delay: 0.1s;">
+                            <img src="assets/hero-bg.png" alt="Symphony 2">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                                <span class="gallery-caption">Marina Lights</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item masonry-item fade-in" style="transition-delay: 0.2s;">
+                            <img src="assets/gallery-1.png" alt="Symphony 3">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                                <span class="gallery-caption">The Elegant Setup</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <h2 class="footer-logo">Dandana.</h2>
+            <p>&copy; 2026 Club Dandana. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Script Connection -->
+    <script src="script.js"></script>
+</body>
+</html>

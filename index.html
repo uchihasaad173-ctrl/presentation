@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Club Dandana - A premium women's musical collective in Agadir, Morocco. Experience elegant, emotional, artistic, and empowering musical performances.">
+    <title>Club Dandana | Women's Musical Collective Agadir</title>
+    <!-- Google Fonts for Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-content">Dandana.</div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="custom-cursor"></div>
+
+    <!-- Hidden Audio Elements -->
+    <audio id="audio-player-1" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" preload="metadata"></audio>
+    <audio id="audio-player-2" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" preload="metadata"></audio>
+    <audio id="audio-player-3" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" preload="metadata"></audio>
+
+    <!-- Header & Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Dandana.</a>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-links" id="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="#music">Music</a>
+                <a href="#events">Events</a>
+                <a href="#contact" class="btn-nav">Book Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home hero section -->
+    <section id="home" class="hero">
+        <video autoplay muted loop playsinline class="hero-video-bg" poster="assets/hero-bg.png">
+            <source src="https://videos.pexels.com/video-files/3195394/3195394-hd_1920_1080_25fps.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content fade-in">
+            <span class="brand-slogan fade-in">Voices of Elegance & Heritage</span>
+            <h1 class="hero-title">Club Dandana</h1>
+            <p class="hero-subtitle">Women's Musical Collective in Agadir</p>
+            <div class="hero-buttons">
+                <a href="#music" class="btn btn-primary">Discover Our Music</a>
+                <a href="#contact" class="btn btn-secondary">Book a Performance</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section-padding">
+        <div class="container auto-grid">
+            <div class="about-text slide-up">
+                <span class="section-badge">Our Story</span>
+                <h2 class="section-title">Empowering Through Melody</h2>
+                <span class="brand-slogan" style="font-size:1.2rem;">Voices of Elegance & Heritage</span>
+                <p>Born in the vibrant heart of Agadir, Morocco, <strong>Club Dandana</strong> represents a new generation of artistic expression. We are a passionate women's musical collective dedicated to preserving and redefining traditional Moroccan and modern world music with an elegant, feminine touch.</p>
+                <p>Our mission goes beyond music; we are a sisterhood celebrating culture, women empowerment, and the profound emotional connection that only music can forge. From the stirring rhythms of Tarab to the soulful melodies of Amazigh heritage, every performance is crafted as an immersive artistic experience.</p>
+            </div>
+            <div class="about-image-wrapper slide-up" style="transition-delay: 0.2s;">
+                <img src="assets/about-img.png" alt="Club Dandana Musicians" class="about-img">
+                <div class="image-accent"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <!-- Music Section -->
+    <section id="music" class="music section-padding">
+        <div class="container text-center relative">
+            <span class="section-badge">Auditory Experience</span>
+            <h2 class="section-title">Listen to Our Soul</h2>
+            <div class="music-layout auto-grid">
+                <div class="player-container slide-up w-100 m-0">
+                    <div class="track-info">
+                        <div class="album-wrapper relative">
+                            <img src="assets/gallery-1.png" alt="Album Art" class="album-art" id="current-album-art">
+                            <div class="audio-visualizer" id="equalizer">
+                                <span></span><span></span><span></span><span></span>
+                            </div>
+                        </div>
+                        <div class="track-details">
+                            <h3 class="track-title" id="current-track-title">Nostalgia of Tarab</h3>
+                            <p class="track-artist" id="current-track-artist">Club Dandana Live Session</p>
+                        </div>
+                    </div>
+                    <div class="player-controls">
+                        <div class="progress-container">
+                            <span class="time current-time">1:18</span>
+                            <div class="progress-bar">
+                                <div class="progress" id="progress-indicator"></div>
+                            </div>
+                            <span class="time duration" id="current-track-duration">4:35</span>
+                        </div>
+                        <div class="control-buttons">
+                            <button class="ctrl-btn"><i class="fas fa-step-backward"></i></button>
+                            <button class="ctrl-btn play-btn"><i class="fas fa-play"></i></button>
+                            <button class="ctrl-btn"><i class="fas fa-step-forward"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="playlist-container slide-up" style="transition-delay: 0.2s;">
+                    <ul class="playlist">
+                        <li class="playlist-item active" data-audio-id="audio-player-1" data-src="assets/gallery-1.png" data-title="Nostalgia of Tarab" data-artist="Club Dandana Live Session" data-duration="6:12">
+                            <div class="play-icon"><i class="fas fa-music"></i></div>
+                            <div class="playlist-info">
+                                <h4>Nostalgia of Tarab</h4>
+                                <p>Club Dandana Live Session</p>
+                            </div>
+                            <span class="playlist-duration">6:12</span>
+                        </li>
+                        <li class="playlist-item" data-audio-id="audio-player-2" data-src="assets/gallery-2.png" data-title="Amazigh Night" data-artist="Acoustic Ensemble" data-duration="7:05">
+                            <div class="play-icon"><i class="fas fa-play"></i></div>
+                            <div class="playlist-info">
+                                <h4>Amazigh Night</h4>
+                                <p>Acoustic Ensemble</p>
+                            </div>
+                            <span class="playlist-duration">7:05</span>
+                        </li>
+                        <li class="playlist-item" data-audio-id="audio-player-3" data-src="assets/about-img.png" data-title="Rhythms of the Atlas" data-artist="Percussion Solo" data-duration="5:44">
+                            <div class="play-icon"><i class="fas fa-play"></i></div>
+                            <div class="playlist-info">
+                                <h4>Rhythms of the Atlas</h4>
+                                <p>Percussion Solo</p>
+                            </div>
+                            <span class="playlist-duration">5:44</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="events section-padding bg-light">
+        <div class="container text-center">
+            <span class="section-badge">Live Experiences</span>
+            <h2 class="section-title">Past Events</h2>
+            <div class="events-grid">
+                <!-- Event Card 1 -->
+                <a href="gallery.html#gallery-echoes" class="event-card slide-up past-event-card">
+                    <div class="event-date">
+                        <span class="day">15</span>
+                        <span class="month">MAY</span>
+                    </div>
+                    <div class="event-details">
+                        <h3 class="event-title">Echoes of Agadir</h3>
+                        <p class="event-location"><i class="fas fa-map-marker-alt"></i> Grand Theatre of Agadir</p>
+                        <p class="event-desc">A mesmerizing evening celebrating women in traditional Moroccan music.</p>
+                    </div>
+                    <span class="view-gallery-btn">View Gallery <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <!-- Event Card 2 -->
+                <a href="gallery.html#gallery-symphony" class="event-card slide-up past-event-card" style="transition-delay: 0.1s;">
+                    <div class="event-date">
+                        <span class="day">12</span>
+                        <span class="month">MAR</span>
+                    </div>
+                    <div class="event-details">
+                        <h3 class="event-title">Women's Day Symphony</h3>
+                        <p class="event-location"><i class="fas fa-map-marker-alt"></i> Agadir Marina</p>
+                        <p class="event-desc">A beautiful past event commemorating the strength and artistry of women.</p>
+                    </div>
+                    <span class="view-gallery-btn">View Gallery <i class="fas fa-arrow-right"></i></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking / Contact Section -->
+    <section id="contact" class="join-contact section-padding">
+        <div class="container text-center">
+            <div class="contact-info slide-up mx-auto" style="max-width: 800px;">
+                <span class="section-badge">Booking & Inquiries</span>
+                <h2 class="section-title">Bring Elegance to Your Stage</h2>
+                <p>Whether you're looking to book Club Dandana for a refined event, cultural festival, or private gathering, our collective is ready to deliver an unforgettable artistic experience. For musicians looking to audition, please reach out via WhatsApp.</p>
+                
+                <div class="contact-cards-container mt-4" style="display:flex; justify-content:center; gap:2rem; flex-wrap:wrap;">
+                    <div class="contact-card">
+                        <i class="fas fa-map-pin"></i>
+                        <strong>Based In</strong>
+                        <p>Agadir, Morocco</p>
+                        <p style="font-size:0.8rem; color:var(--color-text-muted);">Available for domestic and international bookings</p>
+                    </div>
+                    <a href="https://wa.me/212600000000" target="_blank" class="contact-card whatsapp-card">
+                        <i class="fab fa-whatsapp"></i>
+                        <strong>Direct Booking</strong>
+                        <p>+212 600 000 000</p>
+                        <span class="contact-btn-text">Chat Now &rarr;</span>
+                    </a>
+                </div>
+                
+                <div class="social-links justify-center mt-4">
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <h2 class="footer-logo">Dandana.</h2>
+            <p>&copy; 2026 Club Dandana. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Script Connection -->
+    <script src="script.js"></script>
+</body>
+</html>
