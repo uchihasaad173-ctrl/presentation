@@ -156,41 +156,60 @@
     </section>
 
     <!-- Events Section -->
-    <section id="events" class="events section-padding bg-light">
-        <div class="container text-center">
-            <span class="section-badge">Live Experiences</span>
-            <h2 class="section-title">Past Events</h2>
-            <div class="events-grid">
-                <!-- Event Card 1 -->
-                <a href="gallery.html#gallery-echoes" class="event-card slide-up past-event-card">
-                    <div class="event-date">
-                        <span class="day">15</span>
-                        <span class="month">MAY</span>
-                    </div>
-                    <div class="event-details">
-                        <h3 class="event-title">Echoes of Agadir</h3>
-                        <p class="event-location"><i class="fas fa-map-marker-alt"></i> Grand Theatre of Agadir</p>
-                        <p class="event-desc">A mesmerizing evening celebrating women in traditional Moroccan music.</p>
-                    </div>
-                    <span class="view-gallery-btn">View Gallery <i class="fas fa-arrow-right"></i></span>
-                </a>
-                <!-- Event Card 2 -->
-                <a href="gallery.html#gallery-symphony" class="event-card slide-up past-event-card" style="transition-delay: 0.1s;">
-                    <div class="event-date">
-                        <span class="day">12</span>
-                        <span class="month">MAR</span>
-                    </div>
-                    <div class="event-details">
-                        <h3 class="event-title">Women's Day Symphony</h3>
-                        <p class="event-location"><i class="fas fa-map-marker-alt"></i> Agadir Marina</p>
-                        <p class="event-desc">A beautiful past event commemorating the strength and artistry of women.</p>
-                    </div>
-                    <span class="view-gallery-btn">View Gallery <i class="fas fa-arrow-right"></i></span>
-                </a>
-            </div>
-        </div>
-    </section>
+   <section id="events" class="events section-padding bg-light">
+    <div class="container text-center">
+        <span class="section-badge">Live Experiences</span>
+        <h2 class="section-title">Nos Événements</h2>
+        <div class="events-grid">
+        <?php
+        $pdo = getPDO();
+        $events = $pdo->query("
+            SELECT * FROM evenements ORDER BY date_event DESC
+        ")->fetchAll();
 
+        foreach ($events as $e):
+            $is_past    = strtotime($e['date_event']) < time();
+            $is_full    = $e['places_disponibles'] < 1;
+            $date_obj   = new DateTime($e['date_event']);
+        ?>
+            <div class="event-card slide-up <?= $is_past ? 'past-event-card' : '' ?>">
+                <div class="event-date">
+                    <span class="day"><?= $date_obj->format('d') ?></span>
+                    <span class="month"><?= strtoupper($date_obj->format('M')) ?></span>
+                </div>
+                <div class="event-details">
+                    <h3 class="event-title"><?= htmlspecialchars($e['titre']) ?></h3>
+                    <p class="event-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <?= htmlspecialchars($e['lieu']) ?>
+                    </p>
+                    <p class="event-desc"><?= htmlspecialchars($e['description']) ?></p>
+                    <p style="margin-top:8px;font-weight:600">
+                        <?= number_format($e['prix'], 2) ?> MAD
+                        &nbsp;·&nbsp;
+                        <?= $e['places_disponibles'] ?> places
+                    </p>
+                </div>
+
+                <?php if ($is_past): ?>
+                    <span class="view-gallery-btn">Événement passé</span>
+                <?php elseif ($is_full): ?>
+                    <span class="view-gallery-btn" style="opacity:0.5">Complet</span>
+                <?php else: ?>
+                    <a href="portal/buy_ticket.php?event_id=<?= $e['id'] ?>"
+                       class="view-gallery-btn">
+                        Acheter un billet <i class="fas fa-arrow-right"></i>
+                    </a>
+                <?php endif; ?>
+            </div>
+        <?php endforeach; ?>
+
+        <?php if (empty($events)): ?>
+            <p style="color:#888;text-align:center;width:100%">Aucun événement pour le moment.</p>
+        <?php endif; ?>
+        </div>
+    </div>
+</section>
     <!-- Booking / Contact Section -->
     <section id="contact" class="join-contact section-padding">
         <div class="container text-center">
